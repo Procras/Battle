@@ -17,13 +17,6 @@ require './lib/player.rb'
     end
   end
 
-  describe '#attack' do
-    it 'damages player' do
-      expect(player_2).to receive(:receive_damage)
-      player_1.attack(player_2)
-    end
-  end
-
   describe '#receive_damage' do
     it 'takes HP away from player 2' do
       expect { player_2.receive_damage }.to change { player_2.hit_points }.by (-10)
