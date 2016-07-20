@@ -3,6 +3,7 @@ require 'sinatra/base'
 class Battle < Sinatra::Base
 
   enable :sessions
+  STARTING_HIT_POINTS = 60
 
   get '/' do
      erb :index
@@ -17,8 +18,8 @@ class Battle < Sinatra::Base
   get '/play' do
     @player_1_name = session[:player_1_name]
     @player_2_name = session[:player_2_name]
-    @player_1_hp = 60
-    @player_2_hp = 60
+    @player_1_hp = STARTING_HIT_POINTS
+    @player_2_hp = STARTING_HIT_POINTS
     erb :play
   end
 
