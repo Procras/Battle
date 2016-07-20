@@ -1,31 +1,32 @@
-require 'player'
+require './lib/player.rb'
 
  describe Player do
-   subject(:apple) {Player.new('apple')}
-   subject(:banana) {Player.new('banana')}
- end
+   subject(:player_1) {Player.new("player 1")}
+   subject(:player_2) {Player.new("player 2")}
+
 
   describe '#name' do
     it 'returns the name' do
-      expect(apple.name).to eq 'apple'
+      expect(player_1.name).to eq "player 1"
     end
   end
 
   describe '#hit_points' do
     it 'returns the hit points' do
-      expect(apple.hit_points).to eq described_class::DEFAULT_HIT_POINTS
+      expect(player_1.hit_points).to eq described_class::DEFAULT_HIT_POINTS
     end
   end
 
   describe '#attack' do
     it 'damages player' do
-      expect(banana).to receive(:receive_damage)
-      apple.attack(banana)
+      expect(player_2).to receive(:receive_damage)
+      player_1.attack(player_2)
     end
   end
 
   describe '#receive_damage' do
     it 'takes HP away from player 2' do
-      expect { banana.receive_damage }.to change { banana.hit_points }.by (-10)
+      expect { player_2.receive_damage }.to change { player_2.hit_points }.by (-10)
     end
   end
+end

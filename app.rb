@@ -1,10 +1,11 @@
 require 'sinatra/base'
+require './lib/player.rb'
 
 class Battle < Sinatra::Base
   enable :sessions
 
   get '/' do
-    erb(:index)
+    erb :index
   end
 
 
@@ -15,16 +16,16 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
-    @player_1_name = player_1.name
-    @player_2_name = player_2.name
-    erb(:play)
+    @player_1 = $player_1
+    @player_2 = $player_2
+    erb :play
   end
 
   get '/attack' do
     @player_1 = $player_1
     @player_2 = $player_2
     @player_1.attack(@player_2)
-    erb(:attack)
+    erb :attack
   end
 
   # start the server if ruby file executed directly
