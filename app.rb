@@ -5,9 +5,9 @@ class Battle < Sinatra::Base
   enable :sessions
   STARTING_HIT_POINTS = 60
 
-  get '/' do
+    get '/' do
      erb :index
-   end
+  end
 
   post '/names' do
     session[:player_1_name] = params[:player_1_name]
@@ -22,9 +22,6 @@ class Battle < Sinatra::Base
     @player_2_hp = STARTING_HIT_POINTS
     erb :play
   end
-
-
-
 
   # start the server if ruby file executed directly
   run! if app_file == $0
