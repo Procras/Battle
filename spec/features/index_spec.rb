@@ -11,6 +11,6 @@ feature "For players to enter battle" do
 
     click_button "Enter Battle"
 
-    expect(page).to have_text("Welcome to the battle #{player_1} and #{player_2}")
+    expect(page).to have_text("#{player_1} vs #{player_2}")
   end
 end
