@@ -7,10 +7,6 @@ attr_reader :name, :hp
     @hp = DEFAULT_HIT_POINTS
   end
 
-  def attacks(opponent)
-    opponent.attacked
-  end
-
   def attacked
     @hp -= 10
   end

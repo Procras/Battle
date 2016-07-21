@@ -14,8 +14,4 @@ describe 'Player' do
     expect{ player2.attacked }.to change { player2.hp }.by(-10)
   end
 
-  it 'damages opponent when it attacks' do
-    expect(player2).to receive(:attacked)
-    player1.attacks(player2)
-  end
 end
