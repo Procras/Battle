@@ -26,7 +26,7 @@ class Battle < Sinatra::Base
   end
 
   get '/attack' do
-    Game.new.attack($Player2)
+    Game.new($Player1, $Player2).attack($Player2)
     @player_1_name = $Player1.name
     @player_2_name = $Player2.name
     @player_1_hp = $Player1.hp
